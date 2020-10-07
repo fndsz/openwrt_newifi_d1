@@ -12,6 +12,6 @@ src-git freifunk https://github.com/freifunk/openwrt-packages.git
 
 # src-git openclash https://github.com/vernesong/OpenClash.git;master
 # 包含openclash , SSR+ 和 passwall等
-src-git kenzo https://github.com/kenzok8/openwrt-packages
+# src-git kenzo https://github.com/kenzok8/openwrt-packages
 # passwall依赖
 # src-git small https://github.com/kenzok8/small
