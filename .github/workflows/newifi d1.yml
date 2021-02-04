@@ -8,7 +8,7 @@
 # Description: Build OpenWrt using GitHub Actions
 #
 
-name: Build newifi d1
+name: Build OpenWrt
 
 on:
   repository_dispatch:
@@ -25,7 +25,7 @@ on:
     types: started
 
 env:
-  REPO_URL: https://github.com/fndsz/lede.git
+  REPO_URL: https://github.com/fndsz/lede
   REPO_BRANCH: master
   FEEDS_CONF: feeds.conf.default
   CONFIG_FILE: .config
@@ -34,8 +34,8 @@ env:
   SSH_ACTIONS: false
   UPLOAD_BIN_DIR: false
   UPLOAD_FIRMWARE: true
-  UPLOAD_COWTRANSFER: false
-  UPLOAD_WETRANSFER: true
+  UPLOAD_COWTRANSFER: true
+  UPLOAD_WETRANSFER: false
   TZ: Asia/Shanghai
 
 jobs:
