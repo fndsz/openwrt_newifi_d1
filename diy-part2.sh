@@ -1,16 +1,4 @@
 #!/bin/bash
-#
-# Copyright (c) 2019-2020 P3TERX <https://p3terx.com>
-#
-# This is free software, licensed under the MIT License.
-# See /LICENSE for more information.
-#
-# https://github.com/P3TERX/Actions-OpenWrt
-# File name: diy-part2.sh
-# Description: OpenWrt DIY script part 2 (After Update feeds)
-#
-
-#!/bin/bash
 #============================================================
 # https://github.com/P3TERX/Actions-OpenWrt
 # File name: diy-part2.sh
@@ -18,30 +6,53 @@
 # Lisence: MIT
 # Author: P3TERX
 # Blog: https://p3terx.com
-#============================================================
-
-#device_name='NEWIFI D1'
-#wifi_name='NEWIFI_D1
-#lan_ip='192.168.1.1'        # Lan Ip地址
-#utc_name='Asia\/Shanghai'   # 时区
- 
-#修改机器名称
-#echo "设置主机名"
-#sed -i "s/OpenWrt/$device_name/g" package/base-files/files/bin/config_generate
-
-
+# sed '1,3s/my/your/g'
+# sed -i '93s/0xf60000/0x1fb0000/g' target/
+#=================================================
 # Modify default IP
-#echo "设置lan ip"
-#sed -i "s/192.168.1.1/$lan_ip/g" package/base-files/files/bin/config_generate
+# sed -i 's/15744/32448/g'
+sed -i 's/192.168.1.1/192.168.31.1/g' package/base-files/files/bin/config_generate
+
+# Modify default PASSWORD
+# sed -i 's/$1$V4UetPzk$CYXluq4wUazHjmCDBCqXF./$1$BtNu28UV$VAZEz4CDe1k7Dvar7Ftji0/g' ./package/lean/default-settings/files/zzz-default-settings
+
+# Modify hostname
+sed -i 's/OpenWrt/NEWIFI/g' package/base-files/files/bin/config_generate
+
+# 取消bootstrap为默认主题
+sed -i '/set luci.main.mediaurlbase=\/luci-static\/bootstrap/d' feeds/luci/themes/luci-theme-bootstrap/root/etc/uci-defaults/30_luci-theme-bootstrap
+
+# 删除原主题包
+rm -rf package/lean/luci-theme-argon
+# rm -rf openwrt/package/lean/luci-theme-netgear
+
+# 添加新的主题包
+# git clone https://github.com/jerrykuku/luci-theme-argon.git package/lean/luci-theme-argon
+# git clone https://github.com/sypopo/luci-theme-atmaterial.git package/lean/luci-theme-atmaterial
+# git clone https://github.com/sypopo/luci-theme-argon-mc.git package/lean/luci-theme-argon-mc
+# git clone https://github.com/Leo-Jo-My/luci-theme-opentomcat.git package/lean/luci-theme-opentomcat
+# git clone https://github.com/fndsz/luci-theme-argon.git package/lean/luci-theme-argon
+# 更新
+# ./scripts/feeds update -a && ./scripts/feeds install -a
+
+##########
+# Modify the version number
+sed -i "s/OpenWrt /Fndsz build $(TZ=UTC-8 date "+%Y.%m.%d") @ OpenWrt /g" package/lean/default-settings/files/zzz-default-settings
+
+# Modify default theme
+sed -i 's/luci-theme-bootstrap/luci-theme-argon_new/g' feeds/luci/collections/luci/Makefile
+
+# Add kernel build user
+[ -z $(grep "CONFIG_KERNEL_BUILD_USER=" .config) ] &&
+    echo 'CONFIG_KERNEL_BUILD_USER="Fndsz"' >>.config ||
+    sed -i 's@\(CONFIG_KERNEL_BUILD_USER=\).*@\1$"Fndsz"@' .config
+
+# Add kernel build domain
+[ -z $(grep "CONFIG_KERNEL_BUILD_DOMAIN=" .config) ] &&
+    echo 'CONFIG_KERNEL_BUILD_DOMAIN="GitHub Actions"' >>.config ||
+    sed -i 's@\(CONFIG_KERNEL_BUILD_DOMAIN=\).*@\1$"GitHub Actions"@' .config
 
 
-#修改默认时区
-#echo "修改时区"
-#sed -i "s/'UTC'/'CST-8'\n   set system.@system[-1].zonename='$utc_name'/g" package/base-files/files/bin/config_generate
-
-
-#echo "修改wifi名称"
-
-#sed -i "s/OpenWrt/$wifi_name/g" package/kernel/mac80211/files/lib/wifi/mac80211.sh
-
-#echo "替换文件"
+# 删除lean里的百度文本（编译失败），增加百度PCS-web
+# rm -rf package/lean/baidupcs-web
+# git clone https://github.com/liuzhuoling2011/baidupcs-web.git package/lean/baidupcs-web
