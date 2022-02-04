@@ -23,7 +23,7 @@ sed -i 's/192.168.1.1/192.168.31.1/g' package/base-files/files/bin/config_genera
 sed -i '/set luci.main.mediaurlbase=\/luci-static\/bootstrap/d' feeds/luci/themes/luci-theme-bootstrap/root/etc/uci-defaults/30_luci-theme-bootstrap
 
 # 删除原主题包
-# rm -rf package/lean/luci-theme-argon
+rm -rf package/lean/luci-theme-argon
 # rm -rf openwrt/package/lean/luci-theme-netgear
 
 # 添加新的主题包
