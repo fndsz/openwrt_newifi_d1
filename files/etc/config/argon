@@ -1,0 +1,12 @@
+
+config global
+	option primary '#5e72e4'
+	option dark_primary '#483d8b'
+	option mode 'normal'
+	option transparency_dark '0'
+	option blur_dark '1'
+	option transparency '0'
+	option save '保存更改'
+	option blur '1'
+	option bing_background '0'
+
