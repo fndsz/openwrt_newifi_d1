@@ -27,7 +27,8 @@ rm -rf package/lean/luci-theme-argon
 # rm -rf openwrt/package/lean/luci-theme-netgear
 
 # 添加新的主题包
-git clone -b 18.06 https://github.com/jerrykuku/luci-theme-argon.git package/lean/luci-theme-argon
+git clone -b 18.06 https://github.com/jerrykuku/luci-theme-argon.git
+# git clone -b 18.06 https://github.com/jerrykuku/luci-theme-argon.git package/lean/luci-theme-argon
 # git clone https://github.com/jerrykuku/luci-theme-argon.git package/lean/luci-theme-argon
 # git clone https://github.com/sypopo/luci-theme-atmaterial.git package/lean/luci-theme-atmaterial
 # git clone https://github.com/sypopo/luci-theme-argon-mc.git package/lean/luci-theme-argon-mc
