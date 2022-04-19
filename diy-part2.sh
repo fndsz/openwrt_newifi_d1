@@ -16,7 +16,7 @@ sed -i 's/192.168.1.1/10.28.1.1/g' package/base-files/files/bin/config_generate
 # Modify default PASSWORD
 # sed -i 's/$1$V4UetPzk$CYXluq4wUazHjmCDBCqXF./$1$BtNu28UV$VAZEz4CDe1k7Dvar7Ftji0/g' ./package/lean/default-settings/files/zzz-default-settings
 
-# Modify hostname
+# Modify hostname 
 # sed -i 's/OpenWrt/NEWIFI/g' package/base-files/files/bin/config_generate
 
 # 取消bootstrap为默认主题
@@ -27,6 +27,7 @@ rm -rf package/lean/luci-theme-argon
 # rm -rf openwrt/package/lean/luci-theme-netgear
 
 # 添加新的主题包
+git clone -b 21.02 https://github.com/kenzok78/luci-theme-argonne.git
 # git clone -b 18.06 https://github.com/jerrykuku/luci-theme-argon.git package/lean/luci-theme-argon
 
 # 更新
