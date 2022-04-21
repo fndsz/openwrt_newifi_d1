@@ -1,55 +1,23 @@
 #!/bin/bash
-#============================================================
+#
+# Copyright (c) 2019-2020 P3TERX <https://p3terx.com>
+#
+# This is free software, licensed under the MIT License.
+# See /LICENSE for more information.
+#
 # https://github.com/P3TERX/Actions-OpenWrt
 # File name: diy-part2.sh
 # Description: OpenWrt DIY script part 2 (After Update feeds)
-# Lisence: MIT
-# Author: P3TERX
-# Blog: https://p3terx.com
-# sed '1,3s/my/your/g'
-# sed -i '93s/0xf60000/0x1fb0000/g' target/
-#=================================================
-# Modify default IP
-# sed -i 's/15744/32448/g'
+#
+
+###### Modify default IP
 sed -i 's/192.168.1.1/10.28.1.1/g' package/base-files/files/bin/config_generate
 
-# Modify default PASSWORD
-# sed -i 's/$1$V4UetPzk$CYXluq4wUazHjmCDBCqXF./$1$BtNu28UV$VAZEz4CDe1k7Dvar7Ftji0/g' ./package/lean/default-settings/files/zzz-default-settings
+###### Modify hostname
+sed -i 's/OpenWrt/NewifiD1/g' package/base-files/files/bin/config_generate
 
-# Modify hostname 
-sed -i 's/OpenWrt/Newifi D1/g' package/base-files/files/bin/config_generate
+####### Modify the version number
+sed -i "s/OpenWrt /Fndsz build from Lede $(TZ=UTC-8 date "+%Y.%m.%d") @ OpenWrt /g" package/lean/default-settings/files/zzz-default-settings
 
-# 取消bootstrap为默认主题
-sed -i '/set luci.main.mediaurlbase=\/luci-static\/bootstrap/d' feeds/luci/themes/luci-theme-bootstrap/root/etc/uci-defaults/30_luci-theme-bootstrap
-
-# 删除原主题包
-# rm -rf openwrt/package/lean/luci-theme-netgear
-
-# 添加新的主题包
-# git clone -b 21.02 https://github.com/kenzok78/luci-theme-argonne.git package/luci/luci-theme-argonne
-# git clone -b 18.06 https://github.com/jerrykuku/luci-theme-argon.git package/lean/luci-theme-argon
-
-# 更新
-# ./scripts/feeds update -a && ./scripts/feeds install -a
-
-##########
-# Modify the version number
-sed -i "s/OpenWrt /Fndsz build $(TZ=UTC-8 date "+%Y.%m.%d") @ OpenWrt /g" package/lean/default-settings/files/zzz-default-settings
-
-# Modify default theme
+####### Set argon as default theme
 sed -i 's/luci-theme-bootstrap/luci-theme-argon/g' feeds/luci/collections/luci/Makefile
-
-# Add kernel build user
-[ -z $(grep "CONFIG_KERNEL_BUILD_USER=" .config) ] &&
-    echo 'CONFIG_KERNEL_BUILD_USER="Fndsz"' >>.config ||
-    sed -i 's@\(CONFIG_KERNEL_BUILD_USER=\).*@\1$"Fndsz"@' .config
-
-# Add kernel build domain
-[ -z $(grep "CONFIG_KERNEL_BUILD_DOMAIN=" .config) ] &&
-    echo 'CONFIG_KERNEL_BUILD_DOMAIN="GitHub Actions"' >>.config ||
-    sed -i 's@\(CONFIG_KERNEL_BUILD_DOMAIN=\).*@\1$"GitHub Actions"@' .config
-
-
-# 删除lean里的百度文本（编译失败），增加百度PCS-web
-# rm -rf package/lean/baidupcs-web
-# git clone https://github.com/liuzhuoling2011/baidupcs-web.git package/lean/baidupcs-web
