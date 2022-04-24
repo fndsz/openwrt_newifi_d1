@@ -25,7 +25,7 @@ sed -i '$a src-git Aibx https://github.com/Aibx/openwrt-packages' feeds.conf.def
 
 rm -rf ./feeds/luci/themes/luci-theme-argon.
 #rm -rf package/lean/luci-theme-argon  #删除原Argon主题
-git clone -b master https://github.com/jerrykuku/luci-theme-argon package/lean/luci-theme-argon #加入JerryKuKu’s Argon
-git clone -b master https://github.com/jerrykuku/luci-app-argon-config package/lean/luci-app-argon-config #加入JerryKuKu’s Argon Config
+#git clone -b master https://github.com/jerrykuku/luci-theme-argon package/lean/luci-theme-argon #加入JerryKuKu’s Argon
+#git clone -b master https://github.com/jerrykuku/luci-app-argon-config package/lean/luci-app-argon-config #加入JerryKuKu’s Argon Config
 #cd ..
 #cd ..
