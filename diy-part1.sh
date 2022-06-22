@@ -16,9 +16,9 @@ sed -i 's/^#\(.*helloworld\)/\1/' feeds.conf.default
 # Add a feed source
 sed -i '$a src-git smpackage https://github.com/kenzok78/small-package' feeds.conf.default
 #sed -i '$a src-git small8 https://github.com/kenzok8/small-package' feeds.conf.default
-# sed -i '$a src-git lienol https://github.com/Lienol/openwrt-package' feeds.conf.default
-sed -i '$a src-git Aibx https://github.com/Aibx/openwrt-packages' feeds.conf.default
-
+#sed -i '$a src-git lienol https://github.com/Lienol/openwrt-package' feeds.conf.default
+#sed -i '$a src-git Aibx https://github.com/Aibx/openwrt-packages' feeds.conf.default
+sed -i '$a src-git immortalwrt https://github.com/immortalwrt/packages' feeds.conf.default
 ####### Replace with JerryKuKu’s Argon
 #rm openwrt/package/lean/luci-theme-argon -rf #delete original argon theme
 #echo 'src-git ArgonTheme https://github.com/jerrykuku/luci-theme-argon.git' >> 'feeds.conf.default' #repleace with JerryKuKu’s Argon Theme
