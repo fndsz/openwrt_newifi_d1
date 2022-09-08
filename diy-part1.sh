@@ -11,7 +11,7 @@
 #
 
 # Uncomment a feed source
-sed -i 's/^#\(.*helloworld\)/\1/' feeds.conf.default
+#sed -i 's/^#\(.*helloworld\)/\1/' feeds.conf.default
 
 # Add a feed source
 #sed -i '$a src-git smpackage https://github.com/kenzok78/small-package' feeds.conf.default
@@ -23,7 +23,7 @@ sed -i '$a src-git lienol https://github.com/Lienol/openwrt-packages' feeds.conf
 #rm openwrt/package/lean/luci-theme-argon -rf #delete original argon theme
 #echo 'src-git ArgonTheme https://github.com/jerrykuku/luci-theme-argon.git' >> 'feeds.conf.default' #repleace with JerryKuKu’s Argon Theme
 #echo 'src-git ArgonThemeConfig https://github.com/jerrykuku/luci-app-argon-config.git' >> 'feeds.conf.default' #add JerryKuKu’s Argon Config Feature
-rm -rf ./feeds/luci/themes/luci-theme-argon.
+#rm -rf ./feeds/luci/themes/luci-theme-argon.
 #rm -rf package/lean/luci-theme-argon  #删除原Argon主题
 #git clone -b master https://github.com/jerrykuku/luci-theme-argon package/lean/luci-theme-argon #加入JerryKuKu’s Argon
 #git clone -b master https://github.com/jerrykuku/luci-app-argon-config package/lean/luci-app-argon-config #加入JerryKuKu’s Argon Config
