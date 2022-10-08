@@ -14,10 +14,10 @@
 sed -i 's/192.168.1.1/10.28.1.1/g' package/base-files/files/bin/config_generate
 
 ###### Modify hostname
-sed -i 's/OpenWrt/NewifiD1/g' package/base-files/files/bin/config_generate
+sed -i 's/ImmortalWrt/NewifiD1/g' package/base-files/files/bin/config_generate
 
 ####### Modify the version number
-#sed -i "s/OpenWrt /Fndsz build from Lede $(TZ=UTC-8 date "+%Y.%m.%d") @ OpenWrt /g" package/lean/default-settings/files/zzz-default-settings
+#sed -i "s/ImmortalWrt /Fndsz build from Lede $(TZ=UTC-8 date "+%Y.%m.%d") @ OpenWrt /g" package/lean/default-settings/files/zzz-default-settings
 
 ####### Set argon as default theme
 #sed -i 's/luci-theme-bootstrap/luci-theme-argon/g' feeds/luci/collections/luci/Makefile
