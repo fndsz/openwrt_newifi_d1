@@ -17,4 +17,4 @@ sed -i 's/192.168.1.1/10.28.1.1/g' package/base-files/files/bin/config_generate
 sed -i 's/OpenWrt/NewifiD1/g' package/base-files/files/bin/config_generate
 
 ####### Set argon as default theme
-sed -i 's/luci-theme-bootstrap/luci-theme-argon/g' feeds/luci/collections/luci/Makefile
+#sed -i 's/luci-theme-bootstrap/luci-theme-argon/g' feeds/luci/collections/luci/Makefile
