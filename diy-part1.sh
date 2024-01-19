@@ -17,7 +17,7 @@
 #sed -i '$a src-git smpackage https://github.com/kenzok78/small-package' feeds.conf.default
 sed -i '$a src-git kenzo https://github.com/kenzok8/openwrt-packages' feeds.conf.default
 sed -i '$a src-git small https://github.com/kenzok8/small' feeds.conf.default
-#sed -i '$a src-git small8 https://github.com/kenzok8/small-package' feeds.conf.default
+sed -i '$a src-git small8 https://github.com/kenzok8/small-package' feeds.conf.default
 sed -i '$a src-git lienol https://github.com/Lienol/openwrt-packages' feeds.conf.default
 #sed -i '$a src-git Aibx https://github.com/Aibx/openwrt-packages' feeds.conf.default
 #sed -i '$a src-git immortalwrt https://github.com/immortalwrt/packages' feeds.conf.default
@@ -28,7 +28,7 @@ rm -rf ./feeds/luci/themes/luci-theme-argon
 #echo 'src-git ArgonTheme https://github.com/jerrykuku/luci-theme-argon.git' >> 'feeds.conf.default' #repleace with JerryKuKu’s Argon Theme
 #echo 'src-git ArgonThemeConfig https://github.com/jerrykuku/luci-app-argon-config.git' >> 'feeds.conf.default' #add JerryKuKu’s Argon Config Feature
 rm -rf package/lean/luci-theme-argon  #删除原Argon主题
-git clone -b 23 https://github.com/kenzok78/luci-theme-argone package/lean/luci-theme-argon #加入JerryKuKu’s Argon
+#git clone -b 23 https://github.com/kenzok78/luci-theme-argone package/lean/luci-theme-argon #加入JerryKuKu’s Argon
 #git clone https://github.com/jerrykuku/luci-app-argon-config.git package/lean/luci-app-argon-config #加入JerryKuKu’s Argon Config
 cd ..
 #cd ..
