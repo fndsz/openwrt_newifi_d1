@@ -1,0 +1,17 @@
+
+config globals
+	option workgroup 'WORKGROUP'
+	option description 'Ksmbd on OpenWrt'
+	option interface 'lan'
+
+config share
+	option name 'TF'
+	option path '/mnt/mmcblk0p1'
+	option read_only 'no'
+	option users 'root'
+	option guest_ok 'yes'
+	option create_mask '0755'
+	option dir_mask '0755'
+	option force_root '1'
+	option hide_dot_files 'no'
+

@@ -1,0 +1,19 @@
+
+config mmdvmhost 'POCSAG'
+	option Enable '0'
+
+config mmdvmhost 'ircDDB'
+	option Enable '0'
+
+config mmdvmhost 'DMR'
+	option Enable '0'
+
+config mmdvmhost 'NXDN'
+	option Enable '0'
+
+config mmdvmhost 'P25'
+	option Enable '0'
+
+config mmdvmhost 'System_Fusion'
+	option Enable '0'
+

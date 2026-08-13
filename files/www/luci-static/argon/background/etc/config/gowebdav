@@ -1,0 +1,12 @@
+
+config gowebdav 'config'
+	option read_only '0'
+	option enable_https '0'
+	option enabled '1'
+	option listen_port '6006'
+	option public_access '1'
+	option enable_auth '1'
+	option username '123'
+	option password '123'
+	option mount_dir '/mnt'
+
