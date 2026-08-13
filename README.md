@@ -1,7 +1,7 @@
 
 lenovoD1 MMDVM Router
 
-这是一个利用P3TERX编写的Github action小米路由器3G V1 openwrt自动云编译固件
+这是一个利用P3TERX编写的Github actions lenovoD1 openwrt自动云编译固件
 
 基于immortalwrt的openwrt与kanzok8的openwrt-packages
 
